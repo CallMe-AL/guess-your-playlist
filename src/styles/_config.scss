@@ -1,0 +1,32 @@
+// colors
+$bg-secondary: #1c1c1c;
+$bg-tertiary: #303030;
+
+// other
+$border-radius: 0.625rem;
+
+
+@mixin centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
+@mixin btn-theme {
+  border-color: transparent;
+  background-color: rgb(34, 173, 34);
+  padding: 0.625rem clamp(0.625rem, 5vw, 2.5rem);
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  color: white;
+  font-weight: 500;
+  border-radius: 25px;
+  transition: background-color 300ms ease-in-out;
+
+  &:hover {
+    background-color: rgb(83, 212, 83);
+  }
+}

@@ -1,0 +1,65 @@
+@use "_config.scss";
+
+.dashboard-wrap {
+  @include config.centered;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow-y: hidden;
+  gap: clamp(1rem, 5vh, 5rem);
+  overflow-y: hidden;
+
+  h1 {
+    background-color: config.$bg-secondary;
+    padding: 0.5rem clamp(0.5rem, 5vw, 2rem);
+    border-radius: config.$border-radius;
+  }
+
+  .playlist-container {
+    padding-top: 1rem;
+    max-height: 400px; 
+    width: 100%;   
+    max-width: 800px;
+    overflow-y: auto;
+    background-color: config.$bg-secondary;
+    border-radius: config.$border-radius;
+
+    @media (min-width: 760px) {
+      width: 85%;
+      max-height: 650px;
+    }
+
+    @media (min-width: 1050px) {
+      max-height: 750px;
+    }
+
+    .ui-msg {
+      padding: 0 1rem 1rem 1rem;
+    }
+  }
+
+  .rules-btn {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 0.5rem clamp(0.7rem, 5vw, 3rem);
+    border-color: transparent;
+    border-radius: config.$border-radius;
+    background-color: config.$bg-secondary;
+    font-size: 0.8rem;
+
+    &:hover {
+      .fa-bars {
+        transform: rotate(180deg);
+      }        
+    }
+
+    .fa-bars {
+      margin-left: 0.625rem;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+}

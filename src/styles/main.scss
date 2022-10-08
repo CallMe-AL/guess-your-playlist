@@ -1,0 +1,43 @@
+@use "config";
+@use "login";
+@use "dashboard";
+@use "game";
+@use "winningTrackInfo";
+@use "webPlayback";
+@use "rules";
+@use "list-item";
+@use "choice";
+@use "error";
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: calc(15px + 0.390625vw);
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#root {
+  height: 100%;
+}

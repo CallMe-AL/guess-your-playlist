@@ -1,0 +1,35 @@
+@use "config";
+
+.item-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  width: 100%;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  background-color: config.$bg-tertiary;
+
+  .item-icon {
+    width: 3.125rem;
+    height: 3.125rem;
+    margin-inline: 0.625rem;
+
+    @media (min-width: 750px) {
+      width: calc(3.125rem * 1.25);
+      height: calc(3.125rem * 1.25);
+    }
+
+    @media (min-width: 1050px) {
+      width: calc(3.125rem * 1.5);
+      height: calc(3.125rem * 1.5);
+    }
+
+  }
+
+  .item-info {
+    padding-right: 0.5rem;
+  }
+}

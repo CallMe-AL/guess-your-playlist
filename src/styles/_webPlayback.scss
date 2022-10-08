@@ -1,0 +1,50 @@
+@use "config";
+
+.player-container {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: clamp(1.5rem, 4vh, 3rem);
+
+  .dashboard-return {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    position: absolute;
+    top: clamp(1rem, 2vh, 3rem);
+    right: 50%;
+    transform: translateX(50%);
+    width: fit-content;
+    height: fit-content;
+  
+    .fa-chevron-left {
+      margin-right: 0.3125rem;
+    }
+
+    @media (min-width: 1700px) {
+      top: 97%;
+      right: 0;
+      transform: translateX(150%);
+      bottom: 0;
+    }
+  }
+
+  .inner-player-wrap {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    
+    .game-btn {
+      @include config.btn-theme;
+      display: block;
+    }
+
+    .btn-spotify {
+      color: white;
+      background: black;
+      font-size: 1.6rem;
+      border: none;
+      display: block;
+    }
+  }
+  
+}

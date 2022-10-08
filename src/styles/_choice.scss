@@ -1,0 +1,95 @@
+@use "config";
+
+$choice-size: 150px;
+$grid-gap: clamp(0.625rem, 5vw, 1.1rem);
+$choices-padding: clamp(1rem, 5vw, 2.25rem);
+
+.choices-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  grid-gap: $grid-gap;
+  position: relative;
+  margin: 0 auto clamp(1.25rem, 3.5vh, 3rem) auto;
+  min-height: calc(($choice-size * 2) + $grid-gap + 2rem);
+  max-width: calc(($choice-size * 2) + $grid-gap + 2rem); 
+  background-color: config.$bg-secondary;
+  padding: $choices-padding;
+  border-radius: config.$border-radius;
+
+  overflow-y: hidden;
+
+  // increases choice size by 1.5x each breakpoint
+  @media (min-width: 760px) {
+    min-height: calc(($choice-size * 3) + calc($grid-gap * 2) + calc($choices-padding * 2));
+    max-width: calc(($choice-size * 3) + calc($grid-gap * 2) + calc($choices-padding * 2));
+  }
+
+  @media (min-width: 1150px) {
+    min-height: calc(($choice-size * 4) + calc($grid-gap * 2) + calc($choices-padding * 2));
+    max-width: calc(($choice-size * 4) + calc($grid-gap * 2) + calc($choices-padding * 2));
+  }
+
+  &.game-over {
+    .choice {
+      display: none;
+      &.wrong {
+        display: none;
+      }
+
+      &.correct {
+        display: block;
+        height: calc(($choice-size * 2) + $grid-gap);
+        width: calc(($choice-size * 2) + $grid-gap);
+        grid-column: span 2;
+        grid-row: span 2;
+
+        @media (min-width: 760px) {
+          height: calc(($choice-size * 3) + $grid-gap);
+          width: calc(($choice-size * 3) + $grid-gap);
+        }
+
+        @media (min-width: 1150px) {
+          height: calc(($choice-size * 4) + $grid-gap);
+          width: calc(($choice-size * 4) + $grid-gap);
+        }
+      }
+    }
+  }
+
+  .choice {
+    height: $choice-size;
+    width: $choice-size;
+
+    // increases by 1.5x each breakpoint
+    @media (min-width: 760px) {
+      height: calc($choice-size + 75px);
+      width: calc($choice-size + 75px);
+    }
+
+    @media (min-width: 1150px) {
+      height: calc($choice-size * 2);
+      width: calc($choice-size * 2);
+    }
+
+    &.wrong {
+      opacity: 0;
+      transition: opacity 0.3s linear;
+    }
+
+    
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      cursor: help;
+    }
+
+    &.correct:hover {
+      cursor: default;
+    }
+  }
+}

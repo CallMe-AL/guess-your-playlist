@@ -1,0 +1,73 @@
+@use "_config.scss";
+
+.game-wrapper {
+  height: 100%;
+  max-width: 950px;
+  position: relative;
+  margin: 0 auto;
+  padding-top: clamp(3.2rem, 5vh, 5rem);
+  padding-inline: 1rem 3.2rem 1rem;
+
+  @media (min-width: 760px) {
+    width: 80%;
+  }
+
+  h1 {
+    text-align: center;
+    background-color: config.$bg-secondary;
+    padding: 0.5rem clamp(0.5rem, 5vw, 0.9rem);
+    border-radius: config.$border-radius;
+    font-size: 1.7rem;
+    margin: 0 auto clamp(0.3rem, 1.5vh, 2rem) auto;    
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: clamp(0.3rem, 1.5vh, 2rem);
+  }
+
+  .game-info {
+    display: flex;
+    justify-content: flex-start;
+    background-color: config.$bg-secondary;    
+    padding: 0.5rem;
+    border-radius: config.$border-radius;
+    margin: 0 auto;
+
+    @media (min-width: 1700px) {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateX(120%) translateY((-25%));
+    }
+
+    .game-info-list {
+      margin-inline: clamp(1rem, 6vw, 3rem);
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+
+      li {
+        margin-bottom: 0.3125rem;
+      }
+
+      li:last-child {
+        grid-column: span 2;
+      }
+
+      @media (min-width: 1700px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: clamp(1rem, 6vw, 3rem);
+        margin-inline: 0;
+        padding-inline: clamp(1rem, 6vw, 2rem);
+        padding-block: clamp(0.5rem, 6vw, 1rem);
+      
+        li:last-child {
+          grid-column: span 1;
+        }
+      }
+    }
+  }
+}

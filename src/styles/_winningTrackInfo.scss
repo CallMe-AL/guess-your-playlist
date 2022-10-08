@@ -1,0 +1,49 @@
+.toggle-track-info {
+  position: absolute;
+  z-index: 3;
+  bottom: 0.7rem;
+  right: 0.7rem;
+  letter-spacing: 1px;
+
+  color: white;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid white;
+  padding: 0.5rem;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 0.6rem;
+
+  @media (min-width: 760px) {
+    padding: clamp(0.5rem, 2vh, 0.7rem) clamp(1rem, 3vw, 2rem);
+    font-size: 0.8rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+.song-info {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  transition: all 0.2s linear;
+  background: rgba(0, 0, 0, 0.8);
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+  &.hide {
+    bottom: -100%;
+  }
+
+  &.show {
+    bottom: 0;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin: 20px 0 20px 5px;
+  }
+}

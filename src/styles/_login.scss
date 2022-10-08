@@ -1,0 +1,49 @@
+@use "_config.scss";
+
+.main-wrapper {
+  @include config.centered;
+  margin: 0 auto;
+  position: relative;
+
+  border-radius: config.$border-radius;
+  padding: 10px;
+  width: 90%;
+
+  & > * {
+    margin-right: auto;
+
+    @media (min-width: 1150px) {
+      margin: 0 auto;
+    }
+  }
+
+  h1 {
+    margin-top: auto;
+    margin-bottom: 30px;
+    line-height: 1;
+    margin-bottom: clamp(1.9rem, 3vh, 3.5rem);
+  }
+
+  p {
+    line-height: 1.5;
+    margin-bottom: clamp(1.9rem, 3vh, 3.5rem);
+    color: rgb(179, 179, 179);
+    max-width: 55ch;
+  }
+
+  h2 {
+    color: rgb(211, 211, 211);
+    margin-bottom: 30px;
+    line-height: 1;
+    margin-bottom: clamp(2.5rem, 7vh, 4.5rem);
+  }  
+
+  .login-btn {
+    @include config.btn-theme;
+    align-self: flex-start;
+  }
+
+  .premium-warning {
+    margin-top: auto;
+  }
+}

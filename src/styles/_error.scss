@@ -1,0 +1,5 @@
+@use "_config.scss";
+
+.login-btn {
+  @include config.btn-theme;
+}
