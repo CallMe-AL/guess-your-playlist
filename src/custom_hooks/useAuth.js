@@ -20,6 +20,7 @@ export default function useAuth(code) {
       return res.json()
     })
     .then(data => {
+      console.log(data.accessToken)
       setAccessToken({ success: true, accessToken: data.accessToken});
       setRefreshToken(data.refreshToken);
       setExpiresIn(data.expiresIn);
