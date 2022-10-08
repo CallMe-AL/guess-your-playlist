@@ -7,8 +7,11 @@ export default function useAuth(code) {
   const [expiresIn, setExpiresIn] = useState();
 
   useEffect(() => {
+
+    const server = "https://guess-your-playlist-server.onrender.com/";
+    // const server = '';
     
-    fetch("/api/callback" + window.location.search, {
+    fetch(server + "/api/callback" + window.location.search, {
       credentials: "include"
     })
     .then(res => {
@@ -36,7 +39,7 @@ export default function useAuth(code) {
     const callRefresh = async () => {
       try {
         const query = `/?refresh_token=${refreshToken}`;
-        const res = await fetch("/api/refresh_token" + query)
+        const res = await fetch(server + "/api/refresh_token" + query)
         const json = await res.json()
         
         setAccessToken(json.access_token);
