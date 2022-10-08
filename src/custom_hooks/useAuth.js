@@ -6,10 +6,10 @@ export default function useAuth(code) {
   const [refreshToken, setRefreshToken] = useState();
   const [expiresIn, setExpiresIn] = useState();
 
-  useEffect(() => {
+  const server = "https://guess-your-playlist-server.onrender.com";
+  // const server = '';
 
-    const server = "https://guess-your-playlist-server.onrender.com/";
-    // const server = '';
+  useEffect(() => {    
     
     fetch(server + "/api/callback" + window.location.search, {
       credentials: "include"
@@ -30,7 +30,7 @@ export default function useAuth(code) {
       window.history.pushState({}, null, "/")
     })
     .catch((err) => {
-      console.log(err);
+      console.log('error: ', err);
     });
   }, [code]);
 

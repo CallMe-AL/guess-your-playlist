@@ -36,6 +36,12 @@
 
     .ui-msg {
       padding: 0 1rem 1rem 1rem;
+
+      a {
+        display: block;
+        margin-top: 1rem;
+        width: fit-content;
+      }
     }
   }
 
