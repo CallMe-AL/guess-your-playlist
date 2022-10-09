@@ -9,7 +9,7 @@ const Login = () => {
         <h2>Login to your Spotify account to play</h2>   
         <a 
           className="login-btn"
-          href={server + 'login-spotify'}
+          href={server + '/login-spotify'}
         >Login with Spotify</a>
         <p className="premium-warning">**Note: a Spotify Premium account is required to play</p>
       </div>

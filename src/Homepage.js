@@ -1,6 +1,6 @@
 import Login from "./Login.js"
 import Dashboard from './Dashboard';
-import Score from './Score';
+// import Score from './Score';
 
 const code = new URLSearchParams(window.location.search).get("code");
 

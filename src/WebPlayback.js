@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom';
 const WebPlayback = ({
   createGame,
   setGameInfo,
-  token,
-  winningUri
+  token
 }) => {
 
   const [player, setPlayer] = useState(undefined);
@@ -16,7 +15,6 @@ const WebPlayback = ({
   const [current_track, setTrack] = useState(null);
   const [devId, setDevId] = useState(null);
   const [playerReady, setPlayerReady] = useState(false);
-  // const [winningUri, setWinningUri] = useState(winningUri);
 
   const spotify = new SpotifyWebApi();
 

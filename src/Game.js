@@ -13,7 +13,6 @@ const Game = (props) => {
   const [songs, setSongs] = useState([]);
   const [gameSongs, setGameSongs] = useState([]);
   const [winningSong, setWinningSong] = useState(null);
-  const [winningUri, setWinningUri] = useState(null);
   const [gameInfo, setGameInfo] = useState('Almost ready!');
   const [gameStart, setGameStart] = useState(false);
   const [timeLeft, setTimeLeft] = useState(10);
@@ -81,7 +80,6 @@ const Game = (props) => {
 
     const winningIndex = Math.floor(Math.random() * songs.length);
     game_songs.push(songs[winningIndex]);
-    // setWinningUri(songs[winningIndex].track.uri);
     
     // create a temp array from songs state to manipulate
     let temp_songs = [...songs];
@@ -105,6 +103,7 @@ const Game = (props) => {
     setWinningSong(songs[winningIndex]);     
     resetState();
 
+    // return the winning track's uri, passed to create game which then passes to SDK
     return songs[winningIndex].track.uri;
   }
 
@@ -218,8 +217,6 @@ const Game = (props) => {
       </div>             
       <WebPlayback 
           token={accessToken}
-          // uri={winningSong?.track.uri}
-          winningUri={winningUri}
           createGame={createGame}
           setGameInfo={setGameInfo}
       />

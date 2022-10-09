@@ -17,10 +17,8 @@ const Choice = ({
   const [correctChoice, setCorrectChoice] = useState(false);
   const [correct, setCorrect] = useState('');
 
-  // const [albumArt, setAlbumArt] = useState(albumArt1);
-
   const id = song.track.id;
-  const albumArt2 = song.track.album.images[2].url; // 64w
+  // const albumArt2 = song.track.album.images[2].url; // 64w
   const albumArt1 = song.track.album.images[1].url; // 300w
   const albumArt0 = song.track.album.images[0].url; // 640w
 
@@ -61,7 +59,7 @@ const Choice = ({
     <div className={`choice ${correct}`} onClick={() => compareSongs(id)}>
       <picture>
         <source srcSet={albumArt0} media="(min-width: 760px)" />
-        <img src={albumArt1} alt="album image" />
+        <img src={albumArt1} alt="album artwork" />
       </picture>      
       {correctChoice && 
             <WinningSongInfo 
