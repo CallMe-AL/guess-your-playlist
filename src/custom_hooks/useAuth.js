@@ -20,15 +20,15 @@ export default function useAuth(code) {
         setError({ success: false, res: res.status});
         return; 
       }
-      console.log('res: ', res);
-      return res.json()
+      console.log('res: ', res.json());
+      return res.json();
     })
     .then(data => {
       console.log('data: ', data)
       setAccessToken({ success: true, accessToken: data.accessToken});
       setRefreshToken(data.refreshToken);
       setExpiresIn(data.expiresIn);
-      window.history.pushState({}, null, "/")
+      window.history.pushState({}, null, "/");
     })
     .catch((err) => {
       console.log('error: ', err);
@@ -41,8 +41,8 @@ export default function useAuth(code) {
     const callRefresh = async () => {
       try {
         const query = `/?refresh_token=${refreshToken}`;
-        const res = await fetch("/api/refresh_token" + query)
-        const json = await res.json()
+        const res = await fetch("/api/refresh_token" + query);
+        const json = await res.json();
         
         setAccessToken(json.access_token);
         setExpiresIn(json.expires_in);
