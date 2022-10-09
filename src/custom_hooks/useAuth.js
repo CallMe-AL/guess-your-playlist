@@ -20,6 +20,7 @@ export default function useAuth(code) {
         setError({ success: false, res: res.status});
         return; 
       }
+      console.log('res: ', res);
       return res.json()
     })
     .then(data => {
