@@ -18,8 +18,8 @@ const Dashboard = (props) => {
   const { setIsActive } = useAuthContext();
 
   useEffect(() => {
-    console.log(accessToken)
     if(!accessToken) return;
+    console.log('token: ', accessToken)
     if (accessToken.success) {
       spotify.setAccessToken(accessToken.accessToken);
       setIsActive(true);
