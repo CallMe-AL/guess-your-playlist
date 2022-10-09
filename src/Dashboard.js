@@ -29,7 +29,9 @@ const Dashboard = (props) => {
     
   }, [accessToken]);
   
-  useEffect(() => {    
+  useEffect(() => {   
+    if (!accessToken) return;
+    console.log('token: ', accessToken)
     spotify.getUserPlaylists()
       .then((data) => {
         console.log('user playlists', data);
