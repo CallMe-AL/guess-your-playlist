@@ -46,8 +46,7 @@ const Dashboard = (props) => {
     <>         
       <main className="dashboard-wrap">
         <Rules appearance={appearance} setAppearance={setAppearance}/> 
-        <h1>Choose your playlist to get started!</h1>
-        
+        <h1>Choose your playlist to get started!</h1>        
         <div className="playlist-container">
           {
             playlists.length > 0 

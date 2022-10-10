@@ -53,9 +53,9 @@ const WebPlayback = ({
         console.log('Device ID has gone offline', device_id);
       });
 
-      player.addListener('autoplay_failed', () => {
-        alert('Autoplay is not allowed by the browser autoplay rules');
-      });
+      // player.addListener('autoplay_failed', () => {
+      //   alert('Autoplay is not allowed by the browser autoplay rules');
+      // });
 
       player.addListener('player_state_changed', ( state => {
 

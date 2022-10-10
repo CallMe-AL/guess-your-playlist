@@ -6,9 +6,8 @@ export default function useAuth(code) {
   const [refreshToken, setRefreshToken] = useState();
   const [expiresIn, setExpiresIn] = useState();
 
-  const server = process.env.REACT_APP_SERVER;
-
-  useEffect(() => {   
+  useEffect(() => { 
+    const server = process.env.REACT_APP_SERVER;  
     const address = `${server ? server : ''}/api/callback${window.location.search}`; 
     
     fetch(address)
@@ -30,7 +29,7 @@ export default function useAuth(code) {
     })
     .catch((err) => {
       console.log('error: ', err);
-      // return setError({ success: false, res: err });
+      return setError({ success: false, res: err });
     });
   }, [code]);
 
@@ -38,6 +37,7 @@ export default function useAuth(code) {
 
     const callRefresh = async () => {
       try {
+        const server = process.env.REACT_APP_SERVER;
         const query = `/?refresh_token=${refreshToken}`;
         const address = `${server ? server : ''}/api/refresh_token${query}`;
         const res = await fetch(address);

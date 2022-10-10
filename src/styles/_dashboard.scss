@@ -8,12 +8,18 @@
   position: relative;
   overflow-y: hidden;
   gap: clamp(1rem, 5vh, 5rem);
-  overflow-y: hidden;
+  padding-block: clamp(1.5rem, 5vw, 3.5rem);
 
   h1 {
     background-color: config.$bg-secondary;
     padding: 0.5rem clamp(0.5rem, 5vw, 2rem);
     border-radius: config.$border-radius;
+    font-size: 1.8rem;
+    text-align: center;
+
+    @media (min-width: 760px) {
+      font-size: revert;
+    }
   }
 
   .playlist-container {
