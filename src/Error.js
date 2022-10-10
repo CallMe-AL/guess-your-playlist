@@ -6,7 +6,7 @@ const Error = ({ error }) => {
 
   return (
     <>
-      <div>{`Response status ${error}: try logging in again.`}</div>
+      <div>{error}</div>
       <a className='login-btn' href={server + 'login-spotify'}>
         Login with Spotify
       </a>

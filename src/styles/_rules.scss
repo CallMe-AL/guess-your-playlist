@@ -7,7 +7,7 @@
   width: 100%;
   background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
-  transition: all 0.3s linear;
+  transition: transform 0.3s ease-in;
 
   &.hide {
     transform: translateY(100%);

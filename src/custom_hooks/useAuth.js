@@ -7,6 +7,7 @@ export default function useAuth(code) {
   const [expiresIn, setExpiresIn] = useState();
 
   useEffect(() => { 
+
     const server = process.env.REACT_APP_SERVER;  
     const address = `${server ? server : ''}/api/callback${window.location.search}`; 
     
@@ -14,14 +15,20 @@ export default function useAuth(code) {
     .then(res => {
       if (!res.ok) {
         setAccessToken(null);
-        setError({ success: false, res: res.status});
+        setError({ success: false, error: `Response status ${res.status}: try logging in again.`});
         return; 
       }
-      console.log('res: ', res);
       return res.json();
     })
     .then(data => {
-      console.log('data: ', data)
+      // ***TODO figure out a better way to do this
+      // cannot fetch because there's no code/state to send
+      // playlists still load in dashboard anyway because access token is stored in the spotify-web-api-js package if already ran previously
+      if (!data) {
+        setError({ success: false, error: 'Reloading playlists...' });
+        return;
+      }
+
       setAccessToken({ success: true, accessToken: data.accessToken});
       setRefreshToken(data.refreshToken);
       setExpiresIn(data.expiresIn);
@@ -29,8 +36,8 @@ export default function useAuth(code) {
     })
     .catch((err) => {
       console.log('error: ', err);
-      return setError({ success: false, res: err });
     });
+    
   }, [code]);
 
   useEffect(() => {

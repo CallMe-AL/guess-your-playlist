@@ -18,7 +18,8 @@
     padding: 0.5rem clamp(0.5rem, 5vw, 0.9rem);
     border-radius: config.$border-radius;
     font-size: 1.7rem;
-    margin: 0 auto clamp(0.3rem, 1.5vh, 2rem) auto;    
+    margin: 0 auto clamp(0.3rem, 1.5vh, 2rem) auto;
+    max-width: 90%;
   }
 
   h2 {
@@ -33,6 +34,12 @@
     padding: 0.5rem;
     border-radius: config.$border-radius;
     margin: 0 auto;
+    margin-bottom: 2rem;
+    max-width: 90%;
+
+    @media (min-width: 760px) {
+      margin-bottom: 0;
+    }
 
     @media (min-width: 1700px) {
       position: absolute;

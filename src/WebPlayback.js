@@ -53,9 +53,9 @@ const WebPlayback = ({
         console.log('Device ID has gone offline', device_id);
       });
 
-      // player.addListener('autoplay_failed', () => {
-      //   alert('Autoplay is not allowed by the browser autoplay rules');
-      // });
+      player.addListener('autoplay_failed', () => {
+        console.log('Autoplay is not allowed by the browser autoplay rules');
+      });
 
       player.addListener('player_state_changed', ( state => {
 
@@ -86,6 +86,8 @@ const WebPlayback = ({
 
     let winning_uri = createGame();
 
+    player.activateElement();
+    
     spotify.play({ device_id: devId, uris: [winning_uri], position_ms: 60000 }, function(err) {
       if (err) {
         console.log(err);

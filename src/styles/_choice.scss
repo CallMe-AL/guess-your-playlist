@@ -1,8 +1,8 @@
 @use "config";
 
 $choice-size: 150px;
-$grid-gap: clamp(0.625rem, 5vw, 1.1rem);
-$choices-padding: clamp(1rem, 5vw, 2.25rem);
+$grid-gap: clamp(0.625rem, 4vw, 1.1rem);
+$choices-padding: clamp(1rem, 3vw, 2.25rem);
 
 .choices-wrapper {
   display: grid;
@@ -12,7 +12,7 @@ $choices-padding: clamp(1rem, 5vw, 2.25rem);
   position: relative;
   margin: 0 auto clamp(1.25rem, 3.5vh, 3rem) auto;
   min-height: calc(($choice-size * 2) + $grid-gap + 2rem);
-  max-width: calc(($choice-size * 2) + $grid-gap + 2rem); 
+  width: fit-content; 
   background-color: config.$bg-secondary;
   padding: $choices-padding;
   border-radius: config.$border-radius;
@@ -22,12 +22,10 @@ $choices-padding: clamp(1rem, 5vw, 2.25rem);
   // increases choice size by 1.5x each breakpoint
   @media (min-width: 760px) {
     min-height: calc(($choice-size * 3) + calc($grid-gap * 2) + calc($choices-padding * 2));
-    max-width: calc(($choice-size * 3) + calc($grid-gap * 2) + calc($choices-padding * 2));
   }
 
   @media (min-width: 1150px) {
     min-height: calc(($choice-size * 4) + calc($grid-gap * 2) + calc($choices-padding * 2));
-    max-width: calc(($choice-size * 4) + calc($grid-gap * 2) + calc($choices-padding * 2));
   }
 
   &.game-over {

@@ -3,6 +3,7 @@ import Dashboard from './Dashboard';
 // import Score from './Score';
 
 const code = new URLSearchParams(window.location.search).get("code");
+const state = new URLSearchParams(window.location.search).get("state");
 
 function Homepage() { 
 
@@ -30,7 +31,7 @@ function Homepage() {
   return (
     <div className="app">
       {code
-      ? <Dashboard code={code}/> 
+      ? <Dashboard code={code} state={state} /> 
       : <Login />}     
     </div>
   )

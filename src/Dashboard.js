@@ -8,30 +8,31 @@ import { useAuthContext } from "./custom_hooks/useAuthContext";
 
 const spotify = new SpotifyWebApi();
 
-const Dashboard = (props) => {
+const Dashboard = ({ code }) => {
 
   const [playlists, setPlaylists] = useState([]);
   const [error, setError] = useState(null);
   const [appearance, setAppearance] = useState('rules hide');
 
-  const accessToken = useAuth(props.code);
+  // ***TODO move auth hook to here since access token gets stored in the web api package?
+  const auth_response = useAuth(code);
   const { setIsActive } = useAuthContext();
 
   useEffect(() => {
-    if(!accessToken) return;
-    console.log('token: ', accessToken)
-    if (accessToken.success) {
-      spotify.setAccessToken(accessToken.accessToken);
+    if(!auth_response) return;
+
+    if (auth_response.success) {
+      spotify.setAccessToken(auth_response.accessToken);
       setIsActive(true);
     } else {
-      setError(accessToken.res);
+      setError(auth_response.error);
     }
     
-  }, [accessToken]);
+  }, [auth_response]);
   
   useEffect(() => {   
-    if (!accessToken) return;
-    console.log('token: ', accessToken)
+    if (!auth_response) return;
+
     spotify.getUserPlaylists()
       .then((data) => {
         console.log('user playlists', data);
@@ -40,7 +41,8 @@ const Dashboard = (props) => {
       function(err) {
         console.error(err);
       })
-  }, [accessToken]);
+      
+  }, [auth_response]);
 
   return (
     <>         
@@ -54,7 +56,6 @@ const Dashboard = (props) => {
                   return (
                     <ListItem 
                       imgUrl={list.images[0].url}
-                      accessToken={accessToken}
                       name={list.name}
                       uri={list.uri}
                       key={list.id}
